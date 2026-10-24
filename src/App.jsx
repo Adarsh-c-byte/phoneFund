@@ -346,6 +346,36 @@ function App() {
                   Verify the recipient name and amount in your UPI app before paying.
                   This website does not automatically verify or record payments.
                 </p>
+
+
+<div className="mx-auto mt-8 max-w-sm rounded-3xl border-2 border-dashed border-[#d9b9c4] bg-[#fff9ed] p-5 text-center">
+  <div className="mb-3 inline-block -rotate-2 rounded-lg bg-candy-yellow px-3 py-1 text-sm font-extrabold">
+    SCAN & PAY 📱
+  </div>
+
+  <h3 className="font-display text-2xl font-extrabold">
+    Prefer scanning?
+  </h3>
+
+  <p className="mt-2 text-sm leading-6 text-slate-600">
+    Scan this QR code using another phone's UPI app.
+  </p>
+
+  <div className="mx-auto mt-5 w-full max-w-[240px] rounded-2xl border-2 border-[#39334b] bg-white p-3 shadow-[4px_4px_0_#39334b]">
+    <img
+      src="/images/upi-qr.png"
+      alt="UPI QR code for voluntary support"
+      className="block h-auto w-full rounded-lg"
+    />
+  </div>
+
+  <p className="mt-4 text-xs leading-5 text-slate-500">
+    Check the recipient name and enter your chosen amount in your UPI app.
+    Never share your UPI PIN or OTP.
+  </p>
+</div>
+
+
               </div>
             </div>
           </div>
