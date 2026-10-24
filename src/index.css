@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Baloo 2", cursive;
+  --font-body: "Nunito", sans-serif;
+
+  --color-candy-pink: #ffd8e8;
+  --color-candy-yellow: #ffdc52;
+  --color-candy-blue: #c9f2ff;
+  --color-ink: #182957;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: #fffaf0;
+  color: var(--color-ink);
+}
