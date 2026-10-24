@@ -269,117 +269,175 @@ function App() {
           </div>
         </section>
 
-        {/* Donation */}
-        <section
-          id="donate"
-          className="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20"
-        >
-          <div className="mx-auto max-w-3xl">
-            <div className="rounded-[2rem] bg-gradient-to-br from-pink-100 via-[#fff3d1] to-sky-100 p-2 sm:p-3">
-              <div className="premium-card relative rounded-[1.7rem] border border-white bg-white/90 p-6 shadow-xl shadow-indigo-950/5 backdrop-blur sm:p-10">
-                <CardDoodles variant="four" />
-                <div className="text-center">
-                  <div className="mx-auto flex h-16 w-16 animate-float items-center justify-center rounded-2xl bg-pink-100 text-3xl">
-                    💛
-                  </div>
-                  <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.18em] text-pink-500">
-                    Every bit of kindness counts
-                  </p>
-                  <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">
-                    Be part of my fresh start
-                  </h2>
-                  <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-600">
-                    Choose any amount you're comfortable with. Please contribute
-                    only if you want to and can afford to.
-                  </p>
-                </div>
+        
+{/* Donation */}
+<section
+  id="donate"
+  className="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20"
+>
+  <div className="mx-auto max-w-5xl">
+    {/* Section Heading */}
+    <div className="mb-10 text-center">
+      <div className="mx-auto flex h-16 w-16 animate-float items-center justify-center rounded-2xl bg-pink-100 text-3xl">
+        💛
+      </div>
 
-                <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {amounts.map((value) => (
-                    <button
-                      key={value}
-                      type="button"
-                      onClick={() => {
-                        setAmount(value);
-                        setCustomAmount("");
-                      }}
-                      aria-pressed={!customAmount && amount === value}
-                      className={`amount-button rounded-2xl border px-3 py-4 font-extrabold ${
-                        !customAmount && amount === value
-                          ? "selected-amount border-ink bg-candy-yellow"
-                          : "border-slate-200 bg-white hover:border-pink-300 hover:bg-pink-50"
-                      }`}
-                    >
-                      ₹{value.toLocaleString("en-IN")}
-                    </button>
-                  ))}
-                </div>
+      <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.18em] text-pink-500">
+        Every bit of kindness counts
+      </p>
 
-                <label htmlFor="custom-amount" className="mt-6 block font-extrabold">
-                  Or enter a custom amount (₹)
-                </label>
-                <input
-                  id="custom-amount"
-                  type="number"
-                  min="1"
-                  step="1"
-                  inputMode="numeric"
-                  value={customAmount}
-                  onChange={(event) => setCustomAmount(event.target.value)}
-                  placeholder="Enter amount"
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-[#fffaf5] px-4 py-4 outline-none transition focus:border-pink-400 focus:ring-4 focus:ring-pink-100"
-                />
+      <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">
+        Be part of my fresh start
+      </h2>
 
+      <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-600">
+        Choose any amount you're comfortable with. Please contribute
+        only if you want to and can afford to.
+      </p>
+    </div>
+
+    {/* Two Payment Cards */}
+    <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2">
+
+      {/* Card 1: Transaction */}
+      <div className="rounded-[2rem] bg-gradient-to-br from-pink-100 via-[#fff3d1] to-pink-50 p-2">
+        <div className="premium-card relative h-full rounded-[1.7rem] border border-white bg-white/90 p-6 shadow-xl shadow-indigo-950/5 backdrop-blur sm:p-8">
+          <CardDoodles variant="one" />
+
+          <div className="relative z-10">
+            <div className="flex items-center justify-between gap-3">
+              <span className="rounded-lg bg-[#f9df86] px-3 py-1 text-xs font-extrabold">
+                OPTION 01
+              </span>
+              <span className="text-3xl">💸</span>
+            </div>
+
+            <h3 className="mt-5 font-display text-2xl font-extrabold">
+              Pay with UPI
+            </h3>
+
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Select an amount and continue to your preferred UPI app.
+            </p>
+
+            {/* Preset Amounts */}
+            <div className="mt-6 grid grid-cols-2 gap-3">
+              {amounts.map((value) => (
                 <button
+                  key={value}
                   type="button"
-                  onClick={donate}
-                  className="primary-button mt-5 w-full rounded-2xl bg-ink px-6 py-4 text-lg font-extrabold text-white shadow-lg shadow-blue-950/15"
+                  onClick={() => {
+                    setAmount(value);
+                    setCustomAmount("");
+                  }}
+                  aria-pressed={!customAmount && amount === value}
+                  className={`amount-button rounded-2xl border px-3 py-4 font-extrabold ${
+                    !customAmount && amount === value
+                      ? "selected-amount border-ink bg-candy-yellow"
+                      : "border-slate-200 bg-white hover:border-pink-300 hover:bg-pink-50"
+                  }`}
                 >
-                  Continue to UPI · ₹
-                  {Number.isFinite(donationAmount) && donationAmount > 0
-                    ? donationAmount.toLocaleString("en-IN")
-                    : "—"}{" "}
-                  ↗
+                  ₹{value.toLocaleString("en-IN")}
                 </button>
+              ))}
+            </div>
 
-                <p className="mt-4 text-center text-xs leading-5 text-slate-500">
-                  Verify the recipient name and amount in your UPI app before paying.
-                  This website does not automatically verify or record payments.
-                </p>
+            {/* Custom Amount */}
+            <label
+              htmlFor="custom-amount"
+              className="mt-6 block text-sm font-extrabold"
+            >
+              Or enter a custom amount (₹)
+            </label>
 
+            <input
+              id="custom-amount"
+              type="number"
+              min="1"
+              step="1"
+              inputMode="numeric"
+              value={customAmount}
+              onChange={(event) => setCustomAmount(event.target.value)}
+              placeholder="Enter amount"
+              className="mt-2 w-full rounded-2xl border border-slate-200 bg-[#fffaf5] px-4 py-4 outline-none transition focus:border-pink-400 focus:ring-4 focus:ring-pink-100"
+            />
 
-<div className="mx-auto mt-8 max-w-sm rounded-3xl border-2 border-dashed border-[#d9b9c4] bg-[#fff9ed] p-5 text-center">
-  <div className="mb-3 inline-block -rotate-2 rounded-lg bg-candy-yellow px-3 py-1 text-sm font-extrabold">
-    SCAN & PAY 📱
-  </div>
+            {/* UPI Button */}
+            <button
+              type="button"
+              onClick={donate}
+              className="primary-button mt-5 w-full rounded-2xl bg-ink px-5 py-4 text-base font-extrabold text-white shadow-lg shadow-blue-950/15 transition hover:-translate-y-0.5"
+            >
+              Continue to UPI · ₹
+              {Number.isFinite(donationAmount) && donationAmount > 0
+                ? donationAmount.toLocaleString("en-IN")
+                : "—"}{" "}
+              ↗
+            </button>
 
-  <h3 className="font-display text-2xl font-extrabold">
-    Prefer scanning?
-  </h3>
+            <p className="mt-4 text-xs leading-5 text-slate-500">
+              Verify the recipient name and amount in your UPI app.
+              Payments are not automatically verified or recorded by this website.
+            </p>
+          </div>
+        </div>
+      </div>
 
-  <p className="mt-2 text-sm leading-6 text-slate-600">
-    Scan this QR code using another phone's UPI app.
-  </p>
+      {/* Card 2: Scan and Pay */}
+      <div className="rounded-[2rem] bg-gradient-to-br from-[#d8eadc] via-[#fff3d1] to-sky-100 p-2">
+        <div className="premium-card relative flex h-full flex-col rounded-[1.7rem] border border-white bg-white/90 p-6 text-center shadow-xl shadow-indigo-950/5 backdrop-blur sm:p-8">
+          <CardDoodles variant="four" />
 
-  <div className="mx-auto mt-5 w-full max-w-[240px] rounded-2xl border-2 border-[#39334b] bg-white p-3 shadow-[4px_4px_0_#39334b]">
-    <img
-      src="/images/upi-qr.png"
-      alt="UPI QR code for voluntary support"
-      className="block h-auto w-full rounded-lg"
-    />
-  </div>
+          <div className="relative z-10 flex flex-1 flex-col items-center">
+            <div className="flex w-full items-center justify-between gap-3">
+              <span className="rounded-lg bg-[#d8eadc] px-3 py-1 text-xs font-extrabold">
+                OPTION 02
+              </span>
+              <span className="text-3xl">📱</span>
+            </div>
 
-  <p className="mt-4 text-xs leading-5 text-slate-500">
-    Check the recipient name and enter your chosen amount in your UPI app.
-    Never share your UPI PIN or OTP.
-  </p>
-</div>
+            <h3 className="mt-5 font-display text-2xl font-extrabold">
+              Scan & Pay
+            </h3>
 
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Prefer scanning? Use another phone to scan this QR code
+              with a UPI app.
+            </p>
 
+            {/* QR Code */}
+            <div className="mx-auto mt-7 w-full max-w-[260px] rounded-3xl border-2 border-dashed border-[#d9b9c4] bg-[#fff9ed] p-4">
+              <div className="mx-auto w-fit -rotate-2 rounded-lg bg-candy-yellow px-3 py-1 text-xs font-extrabold">
+                SCAN ME ✨
+              </div>
+
+              <div className="mx-auto mt-4 w-full rounded-2xl border-2 border-[#39334b] bg-white p-3 shadow-[4px_4px_0_#39334b]">
+                <img
+                  src="/images/upi-qr.png"
+                  alt="UPI QR code for voluntary support"
+                  className="block h-auto w-full rounded-lg"
+                />
+              </div>
+
+              <p className="mt-4 text-xs font-bold text-slate-600">
+                Open your UPI app · Scan · Enter amount
+              </p>
+            </div>
+
+            <div className="mt-auto pt-6">
+              <div className="rounded-2xl bg-[#fdf0f4] px-4 py-3 text-left text-xs leading-5 text-slate-600">
+                💗 Please check the recipient name before paying.
+                Never share your UPI PIN or OTP.
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
         {/* Transparency */}
         <section className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
