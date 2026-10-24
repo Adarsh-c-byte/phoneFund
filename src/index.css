@@ -225,3 +225,168 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Animated scrapbook decorations around cards */
+.card-doodles {
+  position: absolute;
+  inset: -17px;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.sketch {
+  position: absolute;
+  display: block;
+  font-family: "Baloo 2", cursive;
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+  animation: sticker-float 4s ease-in-out infinite;
+}
+
+.sketch-star {
+  top: -15px;
+  left: 13%;
+  color: #d69a35;
+  font-size: 31px;
+  transform: rotate(-12deg);
+}
+
+.sketch-heart {
+  top: 25%;
+  right: -9px;
+  color: #ce7997;
+  font-size: 37px;
+  animation-delay: 0.6s;
+}
+
+.sketch-spark {
+  bottom: 17%;
+  left: -13px;
+  color: #9d86b5;
+  font-size: 32px;
+  animation-delay: 1.2s;
+}
+
+.sketch-squiggle {
+  bottom: -12px;
+  right: 17%;
+  color: #d69a35;
+  font-size: 38px;
+  transform: rotate(-10deg);
+  animation-delay: 0.4s;
+}
+
+.sketch-flower {
+  top: -13px;
+  right: 13%;
+  color: #d18c9d;
+  font-size: 27px;
+  animation-delay: 1.5s;
+}
+
+.sketch-dot {
+  bottom: 30%;
+  right: -12px;
+  color: #8da99a;
+  font-size: 21px;
+  animation-delay: 0.9s;
+}
+
+/* Change decoration positions for each card */
+.doodles-two .sketch-star {
+  left: auto;
+  right: 17%;
+  top: -15px;
+}
+
+.doodles-two .sketch-heart {
+  right: auto;
+  left: -12px;
+  top: 40%;
+}
+
+.doodles-two .sketch-flower {
+  right: -8px;
+  top: auto;
+  bottom: 15%;
+}
+
+.doodles-three .sketch-star {
+  top: auto;
+  bottom: -12px;
+  left: 20%;
+}
+
+.doodles-three .sketch-heart {
+  top: -12px;
+  right: 20%;
+}
+
+.doodles-three .sketch-spark {
+  bottom: 25%;
+  left: auto;
+  right: -12px;
+}
+
+.doodles-four .sketch-star {
+  top: 10%;
+  left: -13px;
+}
+
+.doodles-four .sketch-heart {
+  top: -12px;
+  right: 25%;
+}
+
+.doodles-four .sketch-flower {
+  top: auto;
+  bottom: -12px;
+  right: 25%;
+}
+
+/* Friendly sticker-like card effect */
+.premium-card {
+  border: 1px solid #eadfd8;
+  box-shadow: 4px 5px 0 rgb(57 51 75 / 9%);
+}
+
+@keyframes sticker-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .card-doodles {
+    inset: -10px;
+  }
+
+  .sketch-star,
+  .sketch-flower {
+    font-size: 23px;
+  }
+
+  .sketch-heart {
+    font-size: 29px;
+  }
+
+  .sketch-spark {
+    font-size: 25px;
+  }
+
+  .sketch-squiggle {
+    font-size: 29px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketch {
+    animation: none !important;
+  }
+}

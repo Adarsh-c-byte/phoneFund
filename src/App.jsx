@@ -5,6 +5,21 @@ const GOAL = 15000;
 const UPI_ID = "9973261361@axl";
 const amounts = [100, 200, 500, 1000];
 
+
+function CardDoodles({ variant = "one" }) {
+  return (
+    <div className={`card-doodles doodles-${variant}`} aria-hidden="true">
+      <span className="sketch sketch-star">✳</span>
+      <span className="sketch sketch-heart">♡</span>
+      <span className="sketch sketch-spark">✧</span>
+      <span className="sketch sketch-squiggle">〰</span>
+      <span className="sketch sketch-flower">✿</span>
+      <span className="sketch sketch-dot">✦</span>
+    </div>
+  );
+}
+
+
 function App() {
   const [amount, setAmount] = useState(200);
   const [customAmount, setCustomAmount] = useState("");
@@ -151,7 +166,8 @@ function App() {
 
         {/* Goal */}
         <section className="mx-auto max-w-5xl scroll-mt-24 px-5 py-12 sm:px-8 sm:py-16">
-          <div className="premium-card rounded-[2rem] border border-white bg-white p-6 shadow-xl shadow-indigo-950/5 sm:p-10">
+         <div className="premium-card relative rounded-[2rem] border border-white bg-white p-6 shadow-xl shadow-indigo-950/5 sm:p-10">
+            <CardDoodles variant="one" />
             <div className="flex flex-wrap items-start justify-between gap-6">
               <div>
                 <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-pink-500">
@@ -211,8 +227,10 @@ function App() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-            <article className="premium-card rounded-3xl border border-pink-100 bg-white p-7 sm:p-9">
-              <div className="mb-4 inline-block -rotate-6 rounded-lg border-2 border-dashed border-[#c98b9d] bg-[#f5cbd8] px-3 py-1 text-sm font-extrabold">
+            <article className="premium-card relative rounded-3xl border border-pink-100 bg-white p-7 sm:p-9">
+  <CardDoodles variant="two" />
+              <div className="relative z-10">
+                <div className="mb-4 inline-block -rotate-6 rounded-lg border-2 border-dashed border-[#c98b9d] bg-[#f5cbd8] px-3 py-1 text-sm font-extrabold">
   THE STORY ✎
 </div>
               {/* <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-pink-100 text-3xl">
@@ -226,10 +244,13 @@ function App() {
                 but arranging money for a replacement remains a challenge.
                 That's why I created this page to ask for voluntary help.
               </p>
+              </div>
             </article>
 
-            <article className="premium-card rounded-3xl border border-sky-100 bg-sky-50/80 p-7 sm:p-9">
-            <div className="mb-4 inline-block rotate-3 rounded-lg border-2 border-dashed border-[#a2b9b1] bg-[#d5e8e8] px-3 py-1 text-sm font-extrabold">
+            <article className="premium-card relative rounded-3xl border border-pink-100 bg-white p-7 sm:p-9">
+  <CardDoodles variant="three" />
+            <div className="relative z-10">
+              <div className="mb-4 inline-block rotate-3 rounded-lg border-2 border-dashed border-[#a2b9b1] bg-[#d5e8e8] px-3 py-1 text-sm font-extrabold">
   MY WHY ♡
 </div>
               {/* <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
@@ -243,6 +264,7 @@ function App() {
                 coding, communication, and college work. A replacement phone
                 would help me return to my regular routine.
               </p>
+            </div>
             </article>
           </div>
         </section>
@@ -254,7 +276,8 @@ function App() {
         >
           <div className="mx-auto max-w-3xl">
             <div className="rounded-[2rem] bg-gradient-to-br from-pink-100 via-[#fff3d1] to-sky-100 p-2 sm:p-3">
-              <div className="rounded-[1.7rem] border border-white bg-white/90 p-6 shadow-xl shadow-indigo-950/5 backdrop-blur sm:p-10">
+              <div className="premium-card relative rounded-[1.7rem] border border-white bg-white/90 p-6 shadow-xl shadow-indigo-950/5 backdrop-blur sm:p-10">
+                <CardDoodles variant="four" />
                 <div className="text-center">
                   <div className="mx-auto flex h-16 w-16 animate-float items-center justify-center rounded-2xl bg-pink-100 text-3xl">
                     💛
@@ -330,7 +353,8 @@ function App() {
 
         {/* Transparency */}
         <section className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
-          <div className="rounded-3xl border border-slate-200 bg-white p-7 text-center sm:p-10">
+          <div className="relative rounded-3xl border border-slate-200 bg-white p-7 text-center sm:p-10">
+            <CardDoodles variant="two" />
             <span className="text-3xl">🤝</span>
             <h2 className="mt-3 font-display text-2xl font-extrabold">
               Your trust matters
