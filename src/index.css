@@ -5,16 +5,223 @@
 @theme {
   --font-display: "Baloo 2", cursive;
   --font-body: "Nunito", sans-serif;
+  --color-candy-pink: #f5cbd8;
+  --color-candy-yellow: #f5df91;
+  --color-candy-blue: #d5e8e8;
+  --color-ink: #39334b;
+}
 
-  --color-candy-pink: #ffd8e8;
-  --color-candy-yellow: #ffdc52;
-  --color-candy-blue: #c9f2ff;
-  --color-ink: #182957;
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: #fffaf0;
-  color: var(--color-ink);
+  color: #39334b;
+  background-color: #fff9ed;
+  background-image: radial-gradient(#d8cbb7 0.65px, transparent 0.65px);
+  background-size: 19px 19px;
+}
+
+::selection {
+  background: #f5cbd8;
+  color: #39334b;
+}
+
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(145deg, #fff8e9 0%, #fff4ee 60%, #f3f0e4 100%);
+}
+
+/* Doodle decorations */
+.doodle-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.doodle {
+  position: absolute;
+  display: inline-block;
+  font-family: "Baloo 2", cursive;
+  color: #8c718c;
+  opacity: 0.75;
+  line-height: 1;
+  user-select: none;
+  animation: doodle-drift 5s ease-in-out infinite;
+}
+
+.doodle-star {
+  top: 13%;
+  left: 5%;
+  font-size: 48px;
+  color: #d29a42;
+  transform: rotate(-15deg);
+}
+
+.doodle-heart {
+  top: 38%;
+  left: 46%;
+  font-size: 55px;
+  color: #d77e93;
+  transform: rotate(12deg);
+}
+
+.doodle-spark {
+  top: 18%;
+  right: 9%;
+  font-size: 48px;
+  color: #a68cbd;
+  animation-delay: 1s;
+}
+
+.doodle-smile {
+  bottom: 13%;
+  left: 7%;
+  font-size: 43px;
+  color: #c78c5e;
+  transform: rotate(-12deg);
+}
+
+.doodle-phone {
+  top: 65%;
+  left: 47%;
+  font-size: 32px;
+  transform: rotate(-14deg);
+  filter: saturate(0.65);
+}
+
+.doodle-arrow {
+  top: 57%;
+  right: 5%;
+  font-size: 65px;
+  color: #d29a42;
+  transform: rotate(-25deg);
+}
+
+.doodle-flower {
+  bottom: 9%;
+  right: 13%;
+  font-size: 45px;
+  color: #cf8d9f;
+  transform: rotate(12deg);
+}
+
+/* Softer scrapbook-style cards */
+.premium-card {
+  border-radius: 28px;
+  box-shadow: 4px 5px 0 rgb(57 51 75 / 8%);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-4px) rotate(-0.3deg);
+  box-shadow: 6px 8px 0 rgb(57 51 75 / 10%);
+}
+
+/* Hand-drawn illustration frame */
+.hero-bg img {
+  border-radius: 23px;
+}
+
+.hero-bg .animate-float {
+  outline: 2px dashed #c5a8a8;
+  outline-offset: 5px;
+}
+
+/* Softer headline gradient */
+.gradient-text {
+  color: #c45f83;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Friendly button motion */
+.primary-button,
+.amount-button {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.primary-button {
+  border: 2px solid #39334b;
+  box-shadow: 4px 4px 0 #39334b;
+}
+
+.primary-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #39334b;
+  background-color: #554762;
+}
+
+.amount-button:hover {
+  transform: rotate(-1deg) translateY(-2px);
+}
+
+.selected-amount {
+  box-shadow: 3px 3px 0 #39334b;
+}
+
+@keyframes doodle-drift {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -7px;
+  }
+}
+
+@media (max-width: 640px) {
+  .doodle-star {
+    left: 1%;
+    top: 5%;
+    font-size: 34px;
+  }
+
+  .doodle-heart {
+    left: auto;
+    right: 3%;
+    top: 36%;
+    font-size: 38px;
+  }
+
+  .doodle-phone {
+    left: 3%;
+    top: 64%;
+    font-size: 25px;
+  }
+
+  .doodle-arrow {
+    right: 2%;
+    font-size: 43px;
+  }
+
+  .doodle-smile {
+    left: 2%;
+    font-size: 30px;
+  }
+
+  .doodle-flower {
+    right: 4%;
+    font-size: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
